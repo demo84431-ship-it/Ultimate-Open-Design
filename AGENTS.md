@@ -2,6 +2,35 @@
 
 Working guide for AI agents operating on this repository.
 
+## Session Startup
+
+Before doing anything else:
+
+1. Read `SOUL.md` — this is who you are
+2. Read `USER.md` — this is who you're helping
+3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
+4. Read `SESSION-STATE.md` — current project progress
+
+Don't ask permission. Just do it.
+
+## Memory
+
+You wake up fresh each session. These files are your continuity:
+
+- **Daily notes:** `memory/YYYY-MM-DD.md` — raw logs of what happened
+- **Long-term:** `MEMORY.md` — curated memories (if exists)
+- **Session state:** `SESSION-STATE.md` — project progress tracker
+
+Capture what matters. Write it down — "mental notes" don't survive restarts.
+
+## Red Lines
+
+- Don't exfiltrate private data. Ever.
+- Don't run destructive commands without asking.
+- `trash` > `rm` (recoverable beats gone forever).
+- All work artifacts go inside this repo (workspace root), never in a subfolder.
+- When in doubt, ask.
+
 ## Project Overview
 
 Ultimate Open Design is a gap-free, feature-complete AI design system forked from [nexu-io/open-design](https://github.com/nexu-io/open-design) (34k⭐). It generates prototypes, decks, images, and videos using coding agents.
@@ -11,8 +40,10 @@ Ultimate Open Design is a gap-free, feature-complete AI design system forked fro
 
 ## Repository Structure
 
+The repo lives at the workspace root: `/root/.openclaw/workspace/`
+
 ```
-Ultimate-Open-Design/
+(root = workspace = repo)
 ├── apps/
 │   ├── daemon/         — Express + SQLite backend (REST/SSE, agent spawning, media, MCP, connectors)
 │   │   ├── src/
@@ -43,7 +74,23 @@ Ultimate-Open-Design/
 ├── tools/              — Dev CLI, packaging scripts
 ├── scripts/            — Build scripts
 ├── deploy/             — Docker configs
-└── e2e/                — Playwright tests
+├── e2e/                — Playwright tests
+│
+├── AGENTS.md           ← THIS FILE (project guide for AI agents)
+├── README.md
+├── SESSION-STATE.md
+├── IMPLEMENTATION-PLAN.md
+├── package.json
+├── pnpm-workspace.yaml
+│
+│ OpenClaw workspace files (gitignored, not pushed to GitHub):
+├── SOUL.md             — Agent persona
+├── USER.md             — User info
+├── IDENTITY.md         — Agent identity
+├── TOOLS.md            — Local tool notes
+├── HEARTBEAT.md        — Heartbeat config
+├── memory/             — Daily memory logs
+└── .openclaw/          — OpenClaw config
 ```
 
 ## Key Commands
@@ -139,6 +186,16 @@ Phase 0 is in progress. See `SESSION-STATE.md` for detailed status.
 **Phase 0 — Foundation** (in progress)
 - Splitting `apps-orig/daemon/src/server.ts` (7083 lines) into modules under `apps/daemon/src/`
 - See `docs/01-phase-0-foundation/` for detailed agent task specs
+
+## ⚠️ Workspace Rule (DO NOT VIOLATE)
+
+**The repo IS the workspace.** Do NOT create a subfolder for the repo.
+
+- Workspace root = `/root/.openclaw/workspace/` = repo root
+- All project files (apps/, docs/, skills/, etc.) live directly in the workspace
+- OpenClaw config files (SOUL.md, USER.md, etc.) are gitignored — they stay local
+- When pushing to GitHub, push from the workspace root: `git push origin main`
+- Never do: `mkdir SomeRepo && cd SomeRepo && git clone ...` — just clone INTO the workspace
 
 ## Important Files to Read First
 

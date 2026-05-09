@@ -9,3 +9,12 @@ out/
 .astro/
 .DS_Store
 *.log
+
+# OpenClaw workspace files (local only, not pushed to GitHub)
+SOUL.md
+USER.md
+IDENTITY.md
+TOOLS.md
+HEARTBEAT.md
+memory/
+.openclaw/
