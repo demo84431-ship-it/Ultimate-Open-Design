@@ -1,0 +1,11 @@
+node_modules/
+dist/
+out/
+.od/
+*.sqlite
+*.tsbuildinfo
+.biome/
+.next/
+.astro/
+.DS_Store
+*.log
