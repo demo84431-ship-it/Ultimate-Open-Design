@@ -1,6 +1,6 @@
 # Session State
 
-**Last Updated:** 2026-05-09 14:10 GMT+8
+**Last Updated:** 2026-05-09 14:32 GMT+8
 **Current Phase:** 0 — Foundation
 **Repository:** https://github.com/demo84431-ship-it/Ultimate-Open-Design.git
 **Source:** https://github.com/nexu-io/open-design (34,250 stars)
@@ -114,6 +114,14 @@ Ultimate-Open-Design/
 
 ---
 
+## Session Log
+
+### 2026-05-09 14:20–14:32 GMT+8
+- Deep read of all key application files across `apps/` and `apps-orig/`
+- Analyzed: daemon (server.ts, agents.ts, cli.ts, media.ts, mcp.ts, projects.ts, connectors, live-artifacts, critique, prompts), web (App.tsx, ChatPane.tsx), desktop (index.ts), packaged (index.ts), landing-page
+- Created `AGENTS.md` with full project guide for AI agents
+- Updated `SESSION-STATE.md`
+
 ## Notes
 
 - **GitHub auth:** PAT configured in remote URL
@@ -121,3 +129,4 @@ Ultimate-Open-Design/
 - **PAT scope:** Needs `workflow` scope for GitHub Actions (currently missing)
 - **Source code:** Full open-design source in `apps-orig/` and `packages-orig/`
 - **Monolith:** `apps-orig/daemon/src/server.ts` is 7083 lines — primary refactor target
+- **Agent guide:** `AGENTS.md` created — all agents should read this first
