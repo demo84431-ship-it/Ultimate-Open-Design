@@ -9,7 +9,7 @@
 
 | Phase | Status | Agents | Completed |
 |-------|--------|--------|-----------|
-| Phase 0 — Foundation | ⏳ Not Started | — | 0/? |
+| Phase 0 — Foundation | 🔄 Partial | 7 agents | 4/7 completed |
 | Phase 1 — Design Systems | ⏳ Pending | — | — |
 | Phase 2 — Skill Quality | ⏳ Pending | — | — |
 | Phase 3 — Web Auditing | ⏳ Pending | — | — |
@@ -66,4 +66,23 @@ The original `apps/daemon/server.ts` is 7083 lines. It needs to be split into:
 
 | Commit | Phase | Message |
 |--------|-------|---------|
-| `initial` | — | Initial repo with planning docs and audit |
+| `f78ecbe` | — | Initial repo with planning docs and audit |
+| `e411843` | 0 | Test infrastructure + agent stream parsing |
+| `c5915c5` | 0 | Extract agent system from monolith (2014 lines) |
+
+## Phase 0 Status
+
+| Agent | Task | Status | Output |
+|-------|------|--------|--------|
+| P0-tooling | Biome, .editorconfig, TS config | ✅ Done | biome.json, .editorconfig, tsconfig.base.json |
+| P0-security | Auth, rate limiting, CSP | ✅ Done | middleware/auth, rate-limit, security, validate |
+| P0-tests-v2 | Test infrastructure | ✅ Done | 36 passing tests |
+| P0-agents | Extract agent logic | ✅ Done | agents/adapters, detect, spawn, stream, index (2014 lines) |
+| P0-routes | Extract routes | ⏱️ Partial | routes/projects.ts (more needed) |
+| P0-split-daemon | Full monolith split | ⏱️ Not done | Too large — needs smaller focused tasks |
+
+### Still Needed for Phase 0
+- Extract remaining routes (chat, proxy, deploy, health, tools)
+- Create slim server.ts entry point
+- Wire everything together
+- Verify full build passes
