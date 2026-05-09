@@ -1,6 +1,6 @@
 # Session State
 
-**Last Updated:** 2026-05-09 14:32 GMT+8
+**Last Updated:** 2026-05-09 15:00 GMT+8
 **Current Phase:** 0 — Foundation
 **Repository:** https://github.com/demo84431-ship-it/Ultimate-Open-Design.git
 **Source:** https://github.com/nexu-io/open-design (34,250 stars)
@@ -11,7 +11,7 @@
 
 | Phase | Status | Completed Agents | Remaining |
 |-------|--------|-----------------|-----------|
-| Phase 0 — Foundation | 🔄 In Progress | 4/6 | P0-routes, P0-server |
+| Phase 0 — Foundation | ✅ Complete | 6/6 | Verification pending |
 | Phase 1 — Design Systems | ⏳ Pending | 0/4 | All |
 | Phase 2 — Skill Quality | ⏳ Pending | 0/4 | All |
 | Phase 3 — Web Auditing | ⏳ Pending | 0/3 | All |
@@ -28,15 +28,15 @@
 | P0-security | Auth, rate limiting, CSP, validation | ✅ Done | middleware/auth, rate-limit, security, validate (5 files) |
 | P0-tests | Test infrastructure | ✅ Done | 36 passing tests, vitest.config.ts, helpers.ts |
 | P0-agents | Extract agent system | ✅ Done | agents/adapters, detect, spawn, stream, index (2014 lines) |
-| P0-routes | Extract routes from monolith | ⏱️ Partial | routes/projects.ts, health.ts, proxy.ts (need chat, deploy, tools) |
-| P0-server | Create slim server.ts | ⏳ Not started | — |
+| P0-routes | Extract routes from monolith | ✅ Done | routes/projects.ts, health.ts, proxy.ts, chat.ts, deploy.ts, tools.ts, index.ts |
+| P0-server | Create slim server.ts | ✅ Done | server.ts (179 lines), context.ts |
 
-### Still Needed for Phase 0
-1. Extract remaining routes (chat, deploy, tools) from `apps-orig/daemon/src/server.ts`
-2. Create `apps/daemon/src/server.ts` (<300 lines) — slim entry point
-3. Create `apps/daemon/src/context.ts` — shared context object
-4. Wire everything together
-5. Verify: pnpm lint, typecheck, test, guard all pass
+### Phase 0 Complete — All Agents Done
+1. ✅ Extract remaining routes (chat, deploy, tools) from `apps-orig/daemon/src/server.ts`
+2. ✅ Create `apps/daemon/src/server.ts` (179 lines) — slim entry point
+3. ✅ Create `apps/daemon/src/context.ts` — shared context object
+4. ✅ Wire everything together
+5. ⏳ Verify: pnpm lint, typecheck, test, guard all pass
 
 ---
 
@@ -121,6 +121,18 @@ Ultimate-Open-Design/
 - Analyzed: daemon (server.ts, agents.ts, cli.ts, media.ts, mcp.ts, projects.ts, connectors, live-artifacts, critique, prompts), web (App.tsx, ChatPane.tsx), desktop (index.ts), packaged (index.ts), landing-page
 - Created `AGENTS.md` with full project guide for AI agents
 - Updated `SESSION-STATE.md`
+
+### 2026-05-09 14:38–15:00 GMT+8
+- Fixed workspace structure: repo IS the workspace root (no subfolder)
+- Completed Phase 0 route extraction:
+  - `routes/chat.ts` (203 lines) — chat, runs, connection tests, critique interrupt
+  - `routes/deploy.ts` (390 lines) — deploy, finalize, check-link
+  - `routes/tools.ts` (898 lines) — agents, skills, design systems, templates, media, live artifacts, MCP, orbit, connectors
+  - `routes/index.ts` (14 lines) — barrel file
+  - `context.ts` (37 lines) — shared context type
+  - `server.ts` (179 lines) — slim entry point
+- Total extracted: 3543 lines across 17 source files
+- Monolith reduced from 7083 lines to modular architecture
 
 ## Notes
 
